@@ -1,3 +1,20 @@
+# -*- coding : UTF-8 -*- #
+
+# Copyright 2020 ws1004
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# 
+# Contact : <ws1004@kakao.com // ws1004.4n6@gmail.com>
+
 from datetime import datetime, timedelta
 import struct
 import sys, string
@@ -30,9 +47,9 @@ class recycle_bin_winXP(object):
         F = FILE[offset:offset+self.entry_size]
         for i in range(0, self.info2_filesize//self.entry_size):
             data = []
-            if F[20] == 0x00:        # 휴지통에서 삭제된 파일
+            if F[20] == 0x00:        # Not Remain in Recycle Bin
                 self.remain = "No"
-            else:                           # 휴지통에 파일이 남아있음.
+            else:                           # Remain in Recycle Bin
                 self.remain = "YES"
             data.append(convert_dword(F[280:284]))                              # Index
             data.append(convert_timestamp(convert_dwordlong(F[288:296])))       # Deleted Time
@@ -149,7 +166,7 @@ def print_data(FILE):
 def main():
     print("RBParser version 1.0.0\n")
     print("Author: ws1004 (ws1004@kakao.com)")
-    print("https://github.com/ws1004-4n6/Tool-development/RBParser\n")
+    print("https://github.com/ws1004-4n6/Tool-development/$Recycle_Bin_Parser\n")
     if sys.version_info > (3, 8, 0):
         if len(sys.argv) != 2:
             sys.exit("Example : python {0} [INFO2 FILE]\n          python {0} [$I###### FILE]".format(sys.argv[0]))
