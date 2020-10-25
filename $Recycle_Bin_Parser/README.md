@@ -12,16 +12,7 @@ RBParser_Ver1.py는 Windows XP, Windows 7, Windows 8.1, Windows 10의 OS에서 �
 Recycle Bin 파일 하나에 대한 툴 사용법
 
 ```
-python RBParser_Ver1.py [Recycle_Bin_File]
-```
-
-디렉터리 하위에 있는 모든 .pf 파일에 대한 툴 사용법
-
-```
 python RBParser_Ver1.py [INFO2 FILE]
-
-or
-
 python RBParser_Ver1.py [$I###### FILE]
 ```
 
