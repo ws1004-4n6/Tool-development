@@ -50,16 +50,7 @@ RBParser_Ver1.py can analyze any Recycle Bin artifact file supported by OS in Wi
 How to use tools for Recycle Bin files
 
 ```
-python RBParser_Ver1.py [Recycle_Bin_File]
-```
-
-Using the tool for all ".pf" files in the lower part of the directory
-
-```
 python RBParser_Ver1.py [INFO2 FILE]
-
-or
-
 python RBParser_Ver1.py [$I###### FILE]
 ```
 
