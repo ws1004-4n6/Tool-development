@@ -166,7 +166,7 @@ def print_data(FILE):
 def main():
     print("RBParser version 1.0.0\n")
     print("Author: ws1004 (ws1004@kakao.com)")
-    print("https://github.com/ws1004-4n6/Tool-development/$Recycle_Bin_Parser\n")
+    print("https://github.com/ws1004-4n6/Tool-development/tree/master/$Recycle_Bin_Parser\n")
     if sys.version_info > (3, 8, 0):
         if len(sys.argv) != 2:
             sys.exit("Example : python {0} [INFO2 FILE]\n          python {0} [$I###### FILE]".format(sys.argv[0]))
