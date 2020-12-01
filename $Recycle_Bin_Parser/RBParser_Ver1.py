@@ -19,6 +19,12 @@ from datetime import datetime, timedelta
 import struct
 import sys, string
 
+def convert_bytes(obyte):           # One Byte to int
+    return struct.unpack_from("B", obyte)[0]
+
+def convert_word(tbytes):           # Two Byte to int
+    return struct.unpack_from("H", tbytes)[0]
+
 def convert_dword(fbytes):          # Four Byte to int
     return struct.unpack_from("I", fbytes)[0]
 
@@ -152,15 +158,15 @@ def print_data(FILE):
                 print("└"+"───────────────────"+"─"*(len(r.deleted_file_time))+"─┘")
         else:                       # windows XP
             r = recycle_bin_winXP(bytearray(data))
-            print("Command Line : python {} {}\n".format(sys.argv[0],sys.argv[1]))        
+            print("Command Line : python {} {}\n".format(sys.argv[0],sys.argv[1]))
             print("Source File : {}\n".format(sys.argv[1]))
             print("Version: {}".format(r.version))
             print("Time zone: Coordinated Universal Time [UTC+0]\n")
             
-            print("┌"+"─────────────────────────────────────────────────────────────────"+"─"*(r.path_len)+"─┐")
-            print("│ Index | Deleted Time               | Remain in RB | File Size | Path"+" "*(r.path_len-4)+" │")
+            print("┌"+"───────┬─────────────────────────────────────────────────────────"+"─"*(r.path_len)+"─┐")
+            print("│ Index │ Deleted Time               │ Remain in RB │ File Size │ Path"+" "*(r.path_len-4)+" │")
             for data in r.filedata:
-                print("│ {0:<5} | {1:<26} | {2:<12} | {3:<9} | {4:<{5}} │".format(data[0],data[1],data[2],data[3],data[4],r.path_len))
+                print("│ {0:<5} │ {1:<26} │ {2:<12} │ {3:<9} │ {4:<{5}} │".format(data[0],data[1],data[2],data[3],data[4],r.path_len))
             print("└"+"─────────────────────────────────────────────────────────────────"+"─"*(r.path_len)+"─┘")
 
 def main():
