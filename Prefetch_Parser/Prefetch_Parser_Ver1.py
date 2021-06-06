@@ -250,7 +250,7 @@ class prefetch_win10(object):         # Windows 10 Version
         self.volumes_info_size = convert_dword(F[32:36])
         self.last_launch_time = convert_dwordlong(F[44:52])
         self.launch_time = struct.unpack("7Q",F[52:108])
-        self.runcount = convert_dword(F[124:128])
+        self.runcount = convert_dword(F[116:120])
         
     def Strings(self, FILE, offset, length):    # Load File List is length Byte
         strings = []
